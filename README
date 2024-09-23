@@ -1,1 +1,23 @@
 You're reading me
+Program was written in Go, for simplicity purposes all in one file (will updated)
+Prerequisites
+    Go 1.18+
+    Postman or curl (optional for testing)
+
+Install dependencies
+    go mod tidy
+Run server
+    go run main2.go
+
+The server will start on http://localhost:8080
+
+Obtain valid JWT
+curl -X POST http://localhost:8080/auth
+Obtain expired JWT 
+curl -X POST http://localhost:8080/auth?expired=true
+Fetch public keys JWKS
+curl -X GET http://localhost:8080/.well-known/jwks.json
+
+RSA keys are rotated automatically every 10 minutes.
+JWTs expire after 5 minutes.
+Expired keys are removed from the JWKS endpoint.

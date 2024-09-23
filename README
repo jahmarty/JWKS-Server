@@ -11,12 +11,14 @@ Run server
 
 The server will start on http://localhost:8080
 
+Use Postman as test client or:
+
 Obtain valid JWT
-curl -X POST http://localhost:8080/auth
+Invoke-RestMethod -Method POST -Uri http://localhost:8080/auth
 Obtain expired JWT 
-curl -X POST http://localhost:8080/auth?expired=true
+Invoke-RestMethod -Method POST -Uri http://localhost:8080/auth?expired=true
 Fetch public keys JWKS
-curl -X GET http://localhost:8080/.well-known/jwks.json
+curl http://localhost:8080/.well-known/jwks.json
 
 RSA keys are rotated automatically every 10 minutes.
 JWTs expire after 5 minutes.
